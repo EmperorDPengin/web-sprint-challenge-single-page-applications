@@ -30,7 +30,7 @@ const initialFormValues = {
   'Extra Cheese': false,
   substitute: false,
   special: '',
-  multiplier: 0
+  multiplier: 1
 }
 
 const initialFormErrors = {

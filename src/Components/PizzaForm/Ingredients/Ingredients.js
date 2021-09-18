@@ -48,7 +48,8 @@ export function SizeSelector(props){
                 <select
                     name='size' 
                     onChange={change}
-                    value={value}   
+                    value={value}  
+                    id= 'size-dropdown' 
                 >
                     <option value= ''>Select a Size</option>
                     { sizes.map( size => {
@@ -178,6 +179,7 @@ export function SpecialIntructionCreator(props) {
             </div>
             <div className="container-horizontal">
                 <input
+                    id='special-text'
                     name='special'
                     type= 'text'
                     value={value}

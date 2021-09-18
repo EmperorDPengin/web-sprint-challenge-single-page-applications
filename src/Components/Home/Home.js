@@ -15,7 +15,7 @@ function Home() {
     <div className='home'>
         <div className="home-banner">
             <h1>Your Favorite Food Delivered While Coding.</h1>
-            <button onClick={routeToPizza}>Pizza?</button>
+            <button id="order-pizza" onClick={routeToPizza}>Pizza?</button>
         </div>
     </div>
     )

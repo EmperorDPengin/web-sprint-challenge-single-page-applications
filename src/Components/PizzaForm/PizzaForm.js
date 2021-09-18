@@ -71,11 +71,13 @@ function PizzaForm(props) {
                         <div className='input endpoint'>
                             <div className='number-modifier'>
                                 <input 
-                                    name= 'orders'
+                                    name= 'multiplier'
                                     type= 'number'
-                                    min= '0'
+                                    min= '1'
+                                    value={values.multiplier}
                                     max= '99'
                                     step= '1'
+                                    onChange={onChange}
                                 />
                             </div>
                             <div className="submit">
