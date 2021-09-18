@@ -20,8 +20,13 @@ function PizzaForm(props) {
         change(name, valueToUse);
     }
 
+    const onSubmit = evt => {
+        evt.preventDefault()
+        submit()
+    }
+
     return (
-        <form id="pizza-form" className="pizza-form">
+        <form id="pizza-form" className="pizza-form" onSubmit={onSubmit}>
             <div className="pizza-banner"></div>
 
 
@@ -81,7 +86,7 @@ function PizzaForm(props) {
                                 />
                             </div>
                             <div className="submit">
-                                <button disabled={disabled}>
+                                <button id="order-button" disabled={disabled}>
                                     Submit Order
                                 </button>
                             </div>

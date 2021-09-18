@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Link, Switch } from 'react-router-dom';
 import * as yup from 'yup';
+import axios from 'axios';
 
 import './App.css';
 import schema from './Components/validation/formSchema'
@@ -41,19 +42,30 @@ const initialFormErrors = {
 }
 
 const initialDisabled = false;
-const initialUser = {
-  orders: []
-}
+const initialOrders = [];
 
 
 const App = () => {
   // STATES
-  const [ user, setUser ] = useState(initialUser);
+  const [ orders, setOrders ] = useState(initialOrders);
   const [ formValues, setFormValues ] = useState(initialFormValues);
   const [ formErrors, setFormErrors ] = useState(initialFormErrors);
   const [ disabled,setDisabled ] = useState(initialDisabled);
 
-  // USER HANDLERS
+  // ORDER HANDLERS
+
+  const postNewOrder = newOrder => {
+    
+    axios.post('https://reqres.in/api/orders', newOrder)
+      .then(res => {
+        console.log(newOrder);
+        setOrders([res.data, ...orders]);
+        setFormValues(initialFormValues);
+      }).catch(err => {
+        console.error(err);
+        setFormValues(initialFormValues);
+      })
+  }
 
   // EVENT HANDLERS
   const validate = (name, value) => {
@@ -70,6 +82,34 @@ const App = () => {
       ...formValues,
       [name]: value
     })
+  }
+
+  const formSubmit = () => {
+    const newOrder = {
+      name: formValues.name.trim(),
+      size: formValues.size,
+      sauce: formValues.sauce,
+      toppings: [
+        'Pepperoni',
+        'Diced Tomatos',
+        'Sausage',
+        'Black Olives',
+        'Canadian Bacon',
+        'Spicy Italian Sausage',
+        'Artichoke Hearts',
+        'Grilled Chiken',
+        'Three Cheese',
+        'Onions',
+        'Pineapple',
+        'Green Pepper',
+        'Extra Cheese',
+      ].filter( topping => !!formValues[topping]),
+      substitute: formValues.substitute,
+      special: formValues.special,
+      multiplier: formValues.multiplier,
+    }
+
+    postNewOrder(newOrder);
   }
 
   // EFFECT HANDLERS
@@ -90,7 +130,7 @@ const App = () => {
           <PizzaForm
             values={formValues}
             change={inputChange}
-            // submit={}
+            submit={formSubmit}
             disabled={disabled}
             errors={formErrors}
           />
