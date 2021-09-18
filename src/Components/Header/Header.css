@@ -1,0 +1,34 @@
+.header {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.header h2 {
+    width: 50%;
+    text-align: start;
+    padding-left: 5%; 
+}
+
+.header nav {
+    display: flex;
+    width: 50%;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 5%;
+}a{
+    padding: 2% 7%;
+    border: black solid 1px;
+    text-decoration: none;
+    color: black;
+}a:hover {
+    background-color: black;
+    color: white;
+
+}
+
+hr {
+    width: 100%;
+    border: black solid 1px;
+}

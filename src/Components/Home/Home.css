@@ -1,0 +1,27 @@
+.home {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.home-banner {
+    background-image: url('https://previews.123rf.com/images/lanastock/lanastock2003/lanastock200300864/142442741-relaxing-at-work-young-male-web-developer-in-a-wheelchair-eating-pizza-while-sitting-at-his-workplac.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 45vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 11%;
+}h1{
+    color: crimson;
+    margin-bottom: 4%;
+}button {
+    font-size: 1.1rem;
+    padding: 0.7rem 2rem;
+}
+
+
+
+
